@@ -1,3 +1,6 @@
 #admin-menu a.access-filters {
   background-image: url(../images/lock.png);
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  padding-left: 20px;
 }
