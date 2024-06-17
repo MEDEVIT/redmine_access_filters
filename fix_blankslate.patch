@@ -1,3 +1,4 @@
+# from https://www.redmine.org/issues/40802
 diff --git a/lib/redmine/views/builders/json.rb b/lib/redmine/views/builders/json.rb
 index 47ce0cc9b..011c16e58 100644
 --- a/lib/redmine/views/builders/json.rb
