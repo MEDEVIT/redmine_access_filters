@@ -32,10 +32,3 @@ and run
     bundle exec rake redmine:plugins:test
     # run a single test
     bundle exec ruby plugins/redmine_access_filters/test/functional/access_filter_test.rb  -n test_works_if_no_rules_exist
-
-## github Actions
-
-For unknown reason Niklaus was unable to make the github actions pass (August 21).
-Running the tests locally worked fine, but on github I got always the error
-messages containing `redirect to <http://test.host`. Have no idea, where and why
-this redirection takes place.
