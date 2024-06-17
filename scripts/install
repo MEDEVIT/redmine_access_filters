@@ -24,7 +24,7 @@ esac
 
 echo "Applying blankslate.patch"
 
-patch -d ${REDMINE_PATH} -p1 < ./fix_blankslate.patch
+patch -d ${REDMINE_PATH} -p1 < ./scripts/fix_blankslate.patch
 
 echo "Symlink plugin, assets and specs..."
 
