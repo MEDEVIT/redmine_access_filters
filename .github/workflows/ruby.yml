@@ -39,9 +39,6 @@ jobs:
       - name: install ruby dependencies
         run: bundle install
 
-      - name: apply blankslate patch
-        run: patch -p1 < fix_blankslate.patch
-
       - name: setup redmine ${{ matrix.redmine }}
         run: ./redmine update
 

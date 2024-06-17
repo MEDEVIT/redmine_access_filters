@@ -22,6 +22,10 @@ esac
 
 (set -x; svn export --quiet --force "${REDMINE_SOURCE}" "${REDMINE_PATH}")
 
+echo "Applying blankslate.patch"
+
+patch -d ${REDMINE_PATH} -p1 < fix_blankslate.patch
+
 echo "Symlink plugin, assets and specs..."
 
 mkdir -p ${REDMINE_PATH}/public/plugin_assets
