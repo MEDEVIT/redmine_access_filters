@@ -10,5 +10,3 @@ Redmine::Plugin.register :redmine_access_filters do
                           :caption => :label_access_filters_plural
 
 end
-
-require 'redmine_access_filters'
