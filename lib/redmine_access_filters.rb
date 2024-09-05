@@ -1,2 +1,2 @@
-require 'redmine_access_filters/patches/application_controller_patch'
-require 'redmine_access_filters/hooks/view_layouts_hook'
+require_relative 'redmine_access_filters/patches/application_controller_patch'
+require_relative 'redmine_access_filters/hooks/view_layouts_hook'
