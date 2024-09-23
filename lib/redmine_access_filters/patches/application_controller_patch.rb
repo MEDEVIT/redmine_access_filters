@@ -6,6 +6,13 @@ module RedmineAccessFilters
 
         base.class_eval do
           before_action :apply_access_filters
+
+          def api_request?
+            # Override api_request? method to include CSV format
+            # see https://www.redmine.org/issues/41282
+            %w(xml json csv).include?(params[:format])
+          end
+
         end
         require "#{Rails.root}/plugins/redmine_access_filters/app/models/access_filter"
       end
