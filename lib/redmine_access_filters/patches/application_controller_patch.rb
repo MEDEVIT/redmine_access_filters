@@ -6,13 +6,7 @@ module RedmineAccessFilters
 
         base.class_eval do
           before_action :apply_access_filters
-
-          def api_request?
-            # Override api_request? method to include CSV format
-            # see https://www.redmine.org/issues/41282
-            %w(xml json csv).include?(params[:format])
-          end
-
+          
         end
         require "#{Rails.root}/plugins/redmine_access_filters/app/models/access_filter"
       end
@@ -21,6 +15,13 @@ module RedmineAccessFilters
         def apply_access_filters
           Rails.logger.info "=========== Applying access filters =============="
           Rails.logger.info "Current user is #{User.current}"
+
+          # CSV requests are tricky. They happen both via the API and
+          # the Web browser, we simply exclude them from the access filter
+          if (%w(csv).include?(params[:format]))
+            return
+          end
+          
           access_filters.each do |af|
             Rails.logger.info "Checking af #{af}"
             if User.current.is_or_belongs_to?(af.owner)
