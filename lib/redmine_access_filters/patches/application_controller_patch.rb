@@ -16,9 +16,9 @@ module RedmineAccessFilters
           Rails.logger.info "=========== Applying access filters =============="
           Rails.logger.info "Current user is #{User.current}"
 
-          # CSV requests are tricky. They happen both via the API and
+          # CSV and PDF requests are tricky. They happen both via the API and
           # the Web browser, we simply exclude them from the access filter
-          if (%w(csv).include?(params[:format]))
+          if (%w(csv pdf).include?(params[:format]))
             return
           end
           
